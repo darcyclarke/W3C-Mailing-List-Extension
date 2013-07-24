@@ -1,0 +1,39 @@
+{
+  "name": "W3C Mailing List 2.0",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "This extension injects custom styling and functionality to the typical W3C mailing list archives.",
+  "homepage_url": "https://github.com/darcyclarke/W3C-Mailing-List-Extension",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "page": "src/bg/background.html",
+    "persistent": false
+  },
+  "permissions": [
+    "contentSettings",
+    "http://lists.w3.org/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://lists.w3.org/*"
+      ],
+      "css": [
+        "src/inject/inject.css"
+      ]
+    },
+    {
+      "matches": [
+        "http://lists.w3.org/*"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ]
+    }
+  ]
+}
